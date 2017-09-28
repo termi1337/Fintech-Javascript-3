@@ -5,17 +5,17 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  var input = string;
-  var number = /-?(\d+)(\.\d+)?/g;
-  var match;
-  var maxN = -Infinity;
-  var minN = Infinity;
+  const input = string;
+  const number = /-?(\d+)(\.\d+)?/g;
+  let match;
+  let maxN = -Infinity;
+  let minN = Infinity;
 
-  while (match = number.exec(input)) {
+  while ((match = number.exec(input)) != null) {
     maxN = Math.max(maxN, +(match[0]));
     minN = Math.min(minN, +(match[0]));
   }
-  return ({ min: minN, max: maxN });
+  return { min: minN, max: maxN };
 }
 
 /* ============================================= */
@@ -26,7 +26,7 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
-  var n = x;
+  const n = x;
 
   if (n < 2) {
     return n;
@@ -44,20 +44,20 @@ function fibonacciSimple(x) {
  */
 
 function fibonacciWithCache(x) {
-  var memo = {};
+  const memo = {};
 
   memo[0] = 0;
   memo[1] = 1;
-  function f(x) {
-    var value;
+  function f(n) {
+    let value;
 
-    if (x in memo) {
-      value = memo[x];
+    if (n in memo) {
+      value = memo[n];
     } else {
-      if (x >= 2) {
-        value = f(x - 1) + f(x - 2);
+      if (n >= 2) {
+        value = f(n - 1) + f(n - 2);
       }
-      memo[x] = value;
+      memo[n] = value;
     }
     return value;
   }
@@ -83,16 +83,16 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  var string = '';
-  var l, p = 1;
-  var i = 0, num = 0;
+  let string = '';
+  let l, p = 1;
+  let i = 0, num = 0;
 
   for (i = 0; i < (parseInt((max + 1) / cols, 10) + +((max + 1) % cols > 0)); i++) {
     string += (parseInt(i / 10, 10)) ? ('' + i) : (' ' + i);
     for (l = 1; l < cols; l++) {
       num = i + parseInt((max + 1) / cols, 10) * l + p * (+((max + 1) % cols > 0));
       if (p < (max + 1) % cols) {
-        p++;
+        p += 1;
       } else if (i === parseInt((max + 1) / cols, 10)) {
         break;
       }
@@ -112,17 +112,17 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
-  var string = input;
-  var i;
-  var j;
-  var symb;
-  var str = '';
+  let string = input;
+  let i;
+  let j;
+  let symb;
+  let str = '';
 
   for (i = 0; i < string.length; i++) {
     symb = string[i];
     j = 0;
     while (string[i + j] === symb) {
-      j++;
+      j += 1;
     }
     i = i + j - 1;
     if (j - 1) {
