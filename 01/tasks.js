@@ -112,7 +112,7 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
-  let string = input;
+  const string = input;
   let i;
   let j;
   let symb;
