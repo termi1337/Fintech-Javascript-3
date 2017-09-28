@@ -84,10 +84,8 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
   var string = '';
-  var p = 1;
-  var l;
-  var num = 0;
-  var i = 0;
+  var l, p = 1;
+  var i = 0, num = 0;
 
   for (i = 0; i < (parseInt((max + 1) / cols, 10) + +((max + 1) % cols > 0)); i++) {
     string += (parseInt(i / 10, 10)) ? ('' + i) : (' ' + i);
