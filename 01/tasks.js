@@ -75,15 +75,15 @@ function fibonacciWithCache(x) {
 function printNumbers(max, cols) {
   let string = '';
   let l, p = 1;
-  let i = 0, num = 0;
+  let i = 0, num = 0, fullStr = parseInt((max + 1) / cols, 10);
 
-  for (i = 0; i < (parseInt((max + 1) / cols, 10) + +((max + 1) % cols > 0)); i++) {
+  for (i = 0; i < (fullStr + +((max + 1) % cols > 0)); i++) {
     string += (parseInt(i / 10, 10)) ? ('' + i) : (' ' + i);
     for (l = 1; l < cols; l++) {
-      num = i + parseInt((max + 1) / cols, 10) * l + p * (+((max + 1) % cols > 0));
+      num = i + fullStr * l + p * (+((max + 1) % cols > 0));
       if (p < (max + 1) % cols) {
         p += 1;
-      } else if (i === parseInt((max + 1) / cols, 10)) {
+      } else if (i === fullStr) {
         break;
       }
       string += (parseInt(num / 10, 10)) ? (' ' + num) : ('  ' + num);
