@@ -5,16 +5,17 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  const input = string;
   const number = /-?(\d+)(\.\d+)?/g;
-  let match;
+  const result = string.match(number);
+  let i;
   let maxN = -Infinity;
   let minN = Infinity;
 
-  while ((match = number.exec(input)) != null) {
-    maxN = Math.max(maxN, +(match[0]));
-    minN = Math.min(minN, +(match[0]));
+  for (i = 0; i < result.length; i++) {
+    maxN = Math.max(maxN, +(result[i]));
+    minN = Math.min(minN, +(result[i]));
   }
+
   return { min: minN, max: maxN };
 }
 
@@ -25,13 +26,12 @@ function getMinMax(string) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-function fibonacciSimple(x) {
-  const n = x;
 
-  if (n < 2) {
-    return n;
+function fibonacciSimple(x) {
+  if (x < 2) {
+    return x;
   }
-  return fibonacciSimple(n - 1) + fibonacciSimple(n - 2);
+  return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
 }
 
 /* ============================================= */
@@ -49,22 +49,12 @@ function fibonacciWithCache(x) {
   memo[0] = 0;
   memo[1] = 1;
   function f(n) {
-    let value;
-
-    if (n in memo) {
-      value = memo[n];
-    } else {
-      if (n >= 2) {
-        value = f(n - 1) + f(n - 2);
-      }
-      memo[n] = value;
-    }
-    return value;
+    memo[n] = (n in memo) ? memo[n] : (f(n - 1) + f(n - 2));
+    return memo[n];
   }
 
   return f(x);
 }
-
 /* ============================================= */
 
 /**
