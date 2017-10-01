@@ -45,7 +45,27 @@ function sum(x) {
  * @return {boolean}
  */
 function anagram(first, second) {
-  return false;
+  let fir = first.replace(/[,.;:]/g, '');
+  let sec = second.replace(/[,.;:]/g, '');
+
+  if (fir.length != sec.length) {
+    return false;
+  } 
+  fir = fir.toLowerCase().split('').sort().reduce(function(acc, el) {
+  acc[el] = (acc[el] || 0) + 1;
+  return acc;
+}, {});
+  sec = sec.toLowerCase().split('').sort().reduce(function(acc, el) {
+  acc[el] = (acc[el] || 0) + 1;
+  return acc;
+}, {});
+
+  for (let key in fir) {
+    if (fir[key] != sec[key]) {
+	  return false;
+	}
+  }
+  return true;
 }
 
 /*= ============================================ */

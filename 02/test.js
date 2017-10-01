@@ -63,6 +63,10 @@ describe('Lesson 2', () => {
     it('should check are words anagrams of each other', () => {
       expect(anagram('просветитель', 'терпеливость')).to.be.ok();
       expect(anagram('первый', 'терпеливость')).not.to.be.ok();
+	  expect(anagram('харитон макенти', 'антиох кантемир')).to.be.ok();
+	  expect(anagram('Харитон Макенти', 'Антиох Кантемир')).to.be.ok();
+	  expect(anagram('Аз есмь строка, живу я, мерой остр.', 'За семь морей ростка я вижу рост.')).to.be.ok();
+	  expect(anagram('Я в мире — сирота.', 'Я в Риме — Ариост.')).to.be.ok();
     });
   });
 
