@@ -38,8 +38,23 @@ function customBind(func, context, ...args) {
  * sum :: Number -> sum
  * sum :: void -> Number
  */
+
 function sum(x) {
-  return 0;
+  let s = x;
+  
+  function add(n) {
+    if (isNaN(n)) {
+	  return s;
+	}
+	s += n
+	return add;
+  } 
+  
+  if (isNaN(x)) { 
+    return 0 
+  }
+  
+  return add;
 }
 
 /*= ============================================ */
