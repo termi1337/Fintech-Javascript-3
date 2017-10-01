@@ -28,16 +28,7 @@ function customBind(func, context, ...args) {
     return func.apply(context, bindArgs.concat(fnArgs));
   };
 }
-//var bind = function(fn, context) {
-  // обрезаем ненужные аргументы (функцию и контекст)
-  //var bindArgs = [].slice.call(arguments, 2);
-  //return function() {
-    // здесь все аргументы будут необходимы
-   // var fnArgs = [].slice.call(arguments);
-    // собираем все 
-   // return fn.apply(context, bindArgs.concat(fnArgs));
- // };
-//};
+
 /*= ============================================ */
 
 /**
