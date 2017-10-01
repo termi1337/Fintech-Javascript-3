@@ -4,12 +4,13 @@
  */
 function timer(logger = console.log) {
   let i = 0;
+
   function time() {
     if (i < 10) {
-	  setTimeout(time, 100);
-	  logger(i);
-	i++;
-	};
+      setTimeout(time, 100);
+      logger(i);
+      i += 1;
+    }
   }
   time();
 }
@@ -22,15 +23,15 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-  let bindArgs = [].slice.call(arguments, 2);
-  return function() { 
-    let fnArgs = [].slice.call(arguments);
+  const bindArgs = [].slice.call(arguments, 2);
+
+  return function() {
+    const fnArgs = [].slice.call(arguments);
+
     return func.apply(context, bindArgs.concat(fnArgs));
   };
 }
-
 /*= ============================================ */
-
 /**
  * Напишите функцию sum, вычисляющую суммы подобным образом:
  * sum(1)(2)( ) // 3
@@ -41,24 +42,22 @@ function customBind(func, context, ...args) {
 
 function sum(x) {
   let s = x;
-  
+
   function add(n) {
     if (isNaN(n)) {
-	  return s;
-	}
-	s += n
-	return add;
-  } 
-  
-  if (isNaN(x)) { 
-    return 0 
+      return s;
+    }
+    s += n;
+    return add;
   }
-  
+
+  if (isNaN(x)) {
+    return 0;
+  }
+
   return add;
 }
-
 /*= ============================================ */
-
 /**
  * Определите, являются ли строчки анаграммами (например, “просветитель” — “терпеливость”).
  * @param {string} first
@@ -69,28 +68,26 @@ function anagram(first, second) {
   let fir = first.replace(/[,.;:]/g, '');
   let sec = second.replace(/[,.;:]/g, '');
 
-  if (fir.length != sec.length) {
+  if (fir.length !== sec.length) {
     return false;
-  } 
+  }
   fir = fir.toLowerCase().split('').sort().reduce(function(acc, el) {
-  acc[el] = (acc[el] || 0) + 1;
-  return acc;
-}, {});
+    acc[el] = (acc[el] || 0) + 1;
+    return acc;
+  }, {});
   sec = sec.toLowerCase().split('').sort().reduce(function(acc, el) {
-  acc[el] = (acc[el] || 0) + 1;
-  return acc;
-}, {});
+    acc[el] = (acc[el] || 0) + 1;
+    return acc;
+  }, {});
 
-  for (let key in fir) {
-    if (fir[key] != sec[key]) {
-	  return false;
-	}
+  for (const key in fir) {
+    if (fir[key] !== sec[key]) {
+      return false;
+    }
   }
   return true;
 }
-
 /*= ============================================ */
-
 /**
  * Сократите массив до набора уникальных значений
  * [1,1, 2, 6, 3, 6, 2] → [1, 2, 3, 6]
@@ -98,16 +95,16 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  let obj = {};
-    
+  const obj = {};
+
   for (let i = 0; i < arr.length; i++) {
-    let str = arr[i];
+    const str = arr[i];
+
     obj[str] = true;
   }
-	
+
   return Object.keys(obj);
 }
-
 /**
  * Найдите пересечение двух массивов
  * [1, 3, 5, 7, 9] и [1, 2, 3, 4] → [1, 3]
@@ -115,29 +112,31 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  let fir = getUniq(first);
-  let sec = getUniq(second);
-  let result ={};
-  
+  let fir;
+  let sec;
+  const result = {};
+
   function getUniq(arr) {
-    let obj = {};   
+    const obj = {};
+
     for (let i = 0; i < arr.length; i++) {
-      let str = arr[i];
+      const str = arr[i];
+
       obj[str] = true;
     }
-	
+
     return obj;
   }
-  for (let key in fir) {
+  fir = getUniq(first);
+  sec = getUniq(second);
+  for (const key in fir) {
     if (fir[key] === sec[key]) {
       result[key] = true;
-	}
+    }
   }
   return Object.keys(result);
 }
-
 /* ============================================= */
-
 /**
  * Две строки называются изоморфными, когда в строке A можно заменить
  * конкретный символ на любой другой для получения строки B. (Расстояние Левенштейна, при возможных мутациях
@@ -154,22 +153,20 @@ function getIntersection(first, second) {
 function isIsomorphic(left, right) {
   let i;
   let flag = 0;
-  
+
   if (left.length !== right.length) {
     return false;
   }
-  for(i = 0; i < left.length; i++) {
-	if (left[i] != right[i]) {
-	  if (flag === 1) {
-	    return false;
-	  } else {
-	    flag = 1;
-	  }
-	}
+  for (i = 0; i < left.length; i++) {
+    if (left[i] !== right[i]) {
+      if (flag === 1) {
+        return false;
+      }
+      flag = 1;
+    }
   }
   return true;
 }
-
 module.exports = {
   timer,
   customBind,
