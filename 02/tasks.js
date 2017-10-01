@@ -3,7 +3,7 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
-  i = 0;
+  let i = 0;
   function time() {
     if (i < 10) {
 	  setTimeout(time, 100);
@@ -14,7 +14,6 @@ function timer(logger = console.log) {
   time();
 }
 /*= ============================================ */
-console.log(new Array(10).fill(10).map((_, i)=> i));
 /**
  * Создайте собственную реализацию функции bind
  * @param {Function} func передаваемая функция
@@ -23,9 +22,22 @@ console.log(new Array(10).fill(10).map((_, i)=> i));
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-
+  let bindArgs = [].slice.call(arguments, 2);
+  return function() { 
+    let fnArgs = [].slice.call(arguments);
+    return func.apply(context, bindArgs.concat(fnArgs));
+  };
 }
-
+//var bind = function(fn, context) {
+  // обрезаем ненужные аргументы (функцию и контекст)
+  //var bindArgs = [].slice.call(arguments, 2);
+  //return function() {
+    // здесь все аргументы будут необходимы
+   // var fnArgs = [].slice.call(arguments);
+    // собираем все 
+   // return fn.apply(context, bindArgs.concat(fnArgs));
+ // };
+//};
 /*= ============================================ */
 
 /**
