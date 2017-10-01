@@ -3,15 +3,18 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
-  for (var i = 0; i < 10; i++) {
-    setTimeout(() => {
-      logger(i);
-    }, 100);
+  i = 0;
+  function time() {
+    if (i < 10) {
+	  setTimeout(time, 100);
+	  logger(i);
+	i++;
+	};
   }
+  time();
 }
-
 /*= ============================================ */
-
+console.log(new Array(10).fill(10).map((_, i)=> i));
 /**
  * Создайте собственную реализацию функции bind
  * @param {Function} func передаваемая функция
