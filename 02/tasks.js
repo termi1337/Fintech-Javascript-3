@@ -103,7 +103,7 @@ function getUnique(arr) {
   for (let i = 0; i < arr.length; i++) {
     let str = arr[i];
     obj[str] = true;
-    }
+  }
 	
   return Object.keys(obj);
 }
@@ -124,15 +124,15 @@ function getIntersection(first, second) {
     for (let i = 0; i < arr.length; i++) {
       let str = arr[i];
       obj[str] = true;
-      }
+    }
 	
     return obj;
-    }
+  }
   for (let key in fir) {
     if (fir[key] === sec[key]) {
       result[key] = true;
-	  }
 	}
+  }
   return Object.keys(result);
 }
 
@@ -152,7 +152,22 @@ function getIntersection(first, second) {
  * @return {boolean}
  */
 function isIsomorphic(left, right) {
-
+  let i;
+  let flag = 0;
+  
+  if (left.length !== right.length) {
+    return false;
+  }
+  for(i = 0; i < left.length; i++) {
+	if (left[i] != right[i]) {
+	  if (flag === 1) {
+	    return false;
+	  } else {
+	    flag = 1;
+	  }
+	}
+  }
+  return true;
 }
 
 module.exports = {
