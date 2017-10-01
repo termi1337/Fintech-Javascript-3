@@ -94,7 +94,25 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  return [];
+  let fir = getUniq(first);
+  let sec = getUniq(second);
+  let result ={};
+  
+  function getUniq(arr) {
+    let obj = {};   
+    for (let i = 0; i < arr.length; i++) {
+      let str = arr[i];
+      obj[str] = true;
+      }
+	
+    return obj;
+    }
+  for (let key in fir) {
+    if (fir[key] === sec[key]) {
+      result[key] = true;
+	  }
+	}
+  return Object.keys(result);
 }
 
 /* ============================================= */
