@@ -41,13 +41,11 @@ function customBind(func, context, ...args) {
  */
 
 function sum(x) {
-  let s = x;
-
   function add(n) {
     if (isNaN(n)) {
-      return s;
+      return x;
     }
-    s += n;
+    x += n;
     return add;
   }
 
@@ -65,23 +63,25 @@ function sum(x) {
  * @return {boolean}
  */
 function anagram(first, second) {
-  let fir = first.replace(/[,.;:]/g, '');
-  let sec = second.replace(/[,.;:]/g, '');
+  let firstLine = first.replace(/[,.;:]/g, '');
+  let secondLine = second.replace(/[,.;:]/g, '');
+  let firstSet;
+  let secondSet;
 
-  if (fir.length !== sec.length) {
+  function lineLetters(line) {
+    return line.toLowerCase().split('').sort().reduce(function(acc, el) {
+      acc[el] = (acc[el] || 0) + 1;
+      return acc;
+    }, {});
+  }
+
+  if (firstLine.length !== secondLine.length) {
     return false;
   }
-  fir = fir.toLowerCase().split('').sort().reduce(function(acc, el) {
-    acc[el] = (acc[el] || 0) + 1;
-    return acc;
-  }, {});
-  sec = sec.toLowerCase().split('').sort().reduce(function(acc, el) {
-    acc[el] = (acc[el] || 0) + 1;
-    return acc;
-  }, {});
-
-  for (const key in fir) {
-    if (fir[key] !== sec[key]) {
+  firstSet = lineLetters(firstLine);
+  secondSet = lineLetters(secondLine);
+  for (const key in firstSet) {
+    if (firstSet[key] !== secondSet[key]) {
       return false;
     }
   }
@@ -97,8 +97,8 @@ function anagram(first, second) {
 function getUnique(arr) {
   const obj = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    const str = arr[i];
+  for (let i of arr) {
+    const str = i;
 
     obj[str] = true;
   }
@@ -112,8 +112,8 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  let fir;
-  let sec;
+  let firstArrUniq;
+  let secondArrUniq;
   const result = {};
 
   function getUniq(arr) {
@@ -127,10 +127,10 @@ function getIntersection(first, second) {
 
     return obj;
   }
-  fir = getUniq(first);
-  sec = getUniq(second);
-  for (const key in fir) {
-    if (fir[key] === sec[key]) {
+  firstArrUniq = getUniq(first);
+  secondArrUniq = getUniq(second);
+  for (const key in firstArrUniq) {
+    if (firstArrUniq[key] === secondArrUniq[key]) {
       result[key] = true;
     }
   }
