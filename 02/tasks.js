@@ -5,14 +5,12 @@
 function timer(logger = console.log) {
   let i = 0;
 
-  function time() {
-    if (i < 10) {
-      setTimeout(time, 100);
-      logger(i);
-      i += 1;
-    }
+  function time(x) {
+    return () => { logger(x); };
   }
-  time();
+  for (i; i < 10; i++) {
+    setTimeout(time(i), 100);
+  }
 }
 /*= ============================================ */
 /**
