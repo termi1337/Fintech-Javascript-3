@@ -108,7 +108,7 @@ function getUnique(arr) {
 function getIntersection(first, second) {
   let firstArrUniq;
   let secondArrUniq;
-  const result = {};
+  const result = [];
 
   function getUniq(arr) {
     const obj = {};
@@ -116,7 +116,11 @@ function getIntersection(first, second) {
     for (let i = 0; i < arr.length; i++) {
       const str = arr[i];
 
-      obj[str] = true;
+      if (obj[str]) {
+        obj[str] += 1;
+      } else {
+        obj[str] = 1;
+      }
     }
 
     return obj;
@@ -124,11 +128,13 @@ function getIntersection(first, second) {
   firstArrUniq = getUniq(first);
   secondArrUniq = getUniq(second);
   for (const key in firstArrUniq) {
-    if (firstArrUniq[key] === secondArrUniq[key]) {
-      result[key] = true;
+    if (firstArrUniq[key] && secondArrUniq[key]) {
+      for (let i = 0; i < Math.min(firstArrUniq[key], secondArrUniq[key]); i++) {
+        result[result.length] = key;
+      }
     }
   }
-  return Object.keys(result);
+  return result;
 }
 /* ============================================= */
 /**
