@@ -21,7 +21,7 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-  return function(...fnArgs) {
+  return function(fnArgs) {
     return func.apply(context, args.concat(fnArgs));
   };
 }
