@@ -22,7 +22,7 @@ function timer(logger = console.log) {
  */
 function customBind(func, context, ...args) {
   return function(...fnArgs) {
-    return func.apply(context, args.concat(...fnArgs));
+    return func.apply(context, args.concat(fnArgs));
   };
 }
 /*= ============================================ */
@@ -57,13 +57,11 @@ function sum(x) {
  * @return {boolean}
  */
 function anagram(first, second) {
-  let firstLine = first.replace(/[,.;:]/g, '');
-  let secondLine = second.replace(/[,.;:]/g, '');
-  let firstSet;
-  let secondSet;
+  const firstLine = first.replace(/[,.;:]/g, '');
+  const secondLine = second.replace(/[,.;:]/g, '');
 
   function lineLetters(line) {
-    return line.toLowerCase().split('').sort().reduce(function(acc, el) {
+    return line.toLowerCase().split('').reduce(function(acc, el) {
       acc[el] = (acc[el] || 0) + 1;
       return acc;
     }, {});
@@ -72,8 +70,9 @@ function anagram(first, second) {
   if (firstLine.length !== secondLine.length) {
     return false;
   }
-  firstSet = lineLetters(firstLine);
-  secondSet = lineLetters(secondLine);
+  const firstSet = lineLetters(firstLine);
+  const secondSet = lineLetters(secondLine);
+
   for (const key in firstSet) {
     if (firstSet[key] !== secondSet[key]) {
       return false;
@@ -88,16 +87,14 @@ function anagram(first, second) {
  * @param {Array<number>} исходный массив
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
-function getUnique(arr) {
-  const obj = {};
+function getUnique(array) {
+  const object = {};
 
-  for (let i of arr) {
-    const str = i;
-
-    obj[str] = true;
+  for (let i of array) {
+    object[i] = true;
   }
 
-  return Object.keys(obj);
+  return Object.keys(object);
 }
 /**
  * Найдите пересечение двух массивов
@@ -106,31 +103,24 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  let firstArrUniq;
-  let secondArrUniq;
   const result = [];
 
-  function getUniq(arr) {
-    const obj = {};
+  function getUniq(array) {
+    const object = {};
 
-    for (let i = 0; i < arr.length; i++) {
-      const str = arr[i];
-
-      if (obj[str]) {
-        obj[str] += 1;
-      } else {
-        obj[str] = 1;
-      }
+    for (let i of array) {
+      object[i] = ((object[i] + 1) || 1);
     }
 
-    return obj;
+    return object;
   }
-  firstArrUniq = getUniq(first);
-  secondArrUniq = getUniq(second);
+  const firstArrUniq = getUniq(first);
+  const secondArrUniq = getUniq(second);
+
   for (const key in firstArrUniq) {
     if (firstArrUniq[key] && secondArrUniq[key]) {
       for (let i = 0; i < Math.min(firstArrUniq[key], secondArrUniq[key]); i++) {
-        result[result.length] = key;
+        result.push(key);
       }
     }
   }
@@ -151,18 +141,17 @@ function getIntersection(first, second) {
  * @return {boolean}
  */
 function isIsomorphic(left, right) {
-  let i;
-  let flag = 0;
+  let flag;
 
   if (left.length !== right.length) {
     return false;
   }
-  for (i = 0; i < left.length; i++) {
+  for (let i = 0; i < left.length; i++) {
     if (left[i] !== right[i]) {
-      if (flag === 1) {
+      if (flag) {
         return false;
       }
-      flag = 1;
+      flag = true;
     }
   }
   return true;
