@@ -34,21 +34,8 @@ function customBind(func, context, ...args) {
  * sum :: void -> Number
  */
 
-function sum(x) {
-  function add(n) {
-    if (isNaN(n)) {
-      return x;
-    }
-    x += n;
-    return add;
-  }
+const sum = x => { return x ? (n => sum(x + n) || x) : 0; };
 
-  if (isNaN(x)) {
-    return 0;
-  }
-
-  return add;
-}
 /*= ============================================ */
 /**
  * Определите, являются ли строчки анаграммами (например, “просветитель” — “терпеливость”).
