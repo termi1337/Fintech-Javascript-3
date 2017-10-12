@@ -17,7 +17,7 @@ function promiseAll(promises) {
           resolve(array);
         }
       },
-      reject);	
+      reject);
     });
   });
 }
