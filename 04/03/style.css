@@ -1,0 +1,42 @@
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Tahoma;
+    color: #0088cc;
+}
+
+ul {
+	color: #A9A9A9;
+    font-size: 18px;
+    list-style-type: none;
+    text-align: left;
+}
+
+ul > li:before {
+    color: #FFFF00;
+    content: "•";
+    padding-right: 8px;
+}
+
+ol {
+    color: #696969;
+    list-style-type: none;
+    counter-reset: number;
+    font-size: 18px;
+    padding: 10px;
+}
+
+ol > li:before {
+    color: #00008B;
+    counter-increment: number;
+    content: counter(number);
+    padding-right: 8px;
+}
