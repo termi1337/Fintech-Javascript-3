@@ -1,0 +1,84 @@
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+table {
+    padding: 30px;
+}
+
+.product {
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+    width: 70%;
+    margin: auto;
+}
+
+.product tr:nth-child(1) {
+    border-bottom: 1px solid #fff;
+    background: #666; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+}
+.product tr:nth-child(2n) {
+    background: #f0f0f0; /* Цвет фона */
+} 
+
+.product tr:hover {
+    background: #666; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+}
+
+.product td:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.product td:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
+}
+
+.product td {
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: clip;   
+}
+
+.cells  {
+    table-layout: fixed;
+    text-align: left;
+    border-spacing: 8px;
+    margin: auto;
+}
+
+.cells  td {
+    padding: 8px;
+}
+
+.cells td:first-child {
+    background:#3FC083;
+}
+
+.cells td:nth-child(2) {
+    background:#35CD9B;
+}
+
+.cells td:nth-child(3) {
+    background:#2CDABC;
+}
+
+.cells td:nth-child(4) {
+    background:#29E7E6;
+}
+
+.cells td:nth-child(5) {
+    background:#27CDF2;
+}
+.cells td:nth-child(6) {
+    background:#28AAFC;
+}

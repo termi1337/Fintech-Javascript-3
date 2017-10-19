@@ -1,28 +1,36 @@
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
 p {
     margin-top: 24px;
     margin-bottom: 24px;
 }
+
 h1 {
     margin-top: 24px;
     margin-bottom: 24px;
     font-family: Tahoma;
     color: #0088cc;
 }
+
 ul {
 	color: #0088cc;
+    text-align: left;
 }
+
 li {
 	list-style: circle outside;
+    padding: 10px;
+    margin-left: 1px;
 }
-img {
+
+image {
 	padding:10px;
 	background:#eeeeee;
 	border:1px solid #cccccc;
-}
-body {
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) }
 }
