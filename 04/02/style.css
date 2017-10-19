@@ -14,8 +14,14 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   text-align: left;
-  width: 70%;
+  width: 90%;
   margin: auto;
+}
+
+.product th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .product tr:nth-child(1) {
