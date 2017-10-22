@@ -3,19 +3,89 @@
 <head>
     <meta charset="utf-8">
     <title>Задание 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css">
 </head>
 <body>
-<h1>Пустая страница, в ней создать 2 таблицы. Первая, таблица продуктов(Название продукта, Происхождение, Белки, Жиры, Углеводы):</h1>
-<ul>
-    <li> 5 ячеек в строке равной ширины </li>
-    <li> Если контент не вмещается в ячейку, она не раздвигается, в колонке Название продукта контент в одну строку и скрывается с точками, в колонке Происхождение контент становится многострочным. </li>
-    <li> Фон рядов должен чередоваться </li>
-    <li> По наведению на ряд фон должен меняться </li>
-    <li> Бордеров быть вообще не должно </li>
-    <li> Thead с нижним бордером и цветным фоном </li>
-</ul>
+    <table class="product">
+        <tr>
+            <th>Название продукта</th>
+            <th>Происхождение</th>
+            <th>Белки</th>
+            <th>Жиры</th>
+            <th>Углеводы</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>399999999999999999999999999999994</td>
+            <td>199999666666666666666666666669999999992</td>
+            <td>429996666666666666666666666666666666666699</td>
+            <td>1645666666666666666666666666666666666</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>24455555555555555555555555555555555666</td>
+            <td>241</td>
+            <td>124</td>
+            <td>4124</td>
+            <td>124</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>         
+    </table>
 
-<h1> Вторая, как на картинке, отступ между ячейками 8px</h1>
-<image src="https://habrastorage.org/webt/59/e3/06/59e306153cd88184926845.png"></image>
+    <table class="cells">
+        <tr>
+            <td>This</td>
+            <td>Little</td>
+            <td>Piggy</td>
+            <td>Went</td>
+            <td>To</td>
+            <td>Market</td>
+        </tr>
+        <tr>
+            <td colspan="2">This</td>
+            <td>Little</td>
+            <td>Piggy</td>
+            <td>Went</td>
+            <td>To</td>
+        </tr>
+        <tr>
+            <td colspan="4">This</td>
+            <td rowspan="3">Little</td>
+            <td>Piggy</td>
+        </tr>
+        <tr>
+            <td rowspan="2">This</td>
+            <td>Little</td>
+            <td>Piggy</td>
+            <td>Went</td>
+            <td>To</td>
+        </tr>
+        <tr>
+            <td>Little</td>
+            <td>Piggy</td>
+            <td>Went</td>
+            <td>To</td>
+        </tr>         
+    </table>    
 </body>
 </html>
