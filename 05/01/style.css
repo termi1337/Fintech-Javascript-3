@@ -12,8 +12,7 @@ body {
 }
 
 .box_1 {
-  display: flex;
-  max-width: 1080px;
+  width: 1080px;
   height: 65px;
   margin: auto;
   align-content: center;
