@@ -1,0 +1,80 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 13px;
+}
+
+.box {
+  height: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #ececec;
+}
+
+.box_1 {
+  position: relative;
+  width: 100%;
+  height: 413px;
+  margin: auto;
+  align-content: center;
+  background-image: url(images/cards.png);
+  background-repeat: no-repeat;
+}
+
+.box_1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #1489e7, #003e82);
+}
+
+.box_2 {
+  position: relative;
+  width: 100%;
+  height: 413px;
+  margin: auto;
+  align-content: center;
+}
+
+.link {
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 212px;
+  height: 62px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.41;
+  text-align: center;
+  color: #333;
+  border-radius: 6px;
+  background-color: #ffdd2d;
+}
+
+.description {
+  width: 326px;
+  height: 48px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.card_title {
+  width: 342px;
+  height: 100px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 1;
+  color: #fff;
+}
+
+.link:hover {
+  border-bottom-color: #ffdd2d;
+}
+
+.link:active {
+  border-bottom-color: #ffdd2d;
+}
