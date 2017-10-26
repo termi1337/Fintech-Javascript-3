@@ -47,10 +47,10 @@ body {
 }
 
 .button2 {
-  text-decoration: none;
   width: 212px;
   height: 62px;
   color: #333;
+  text-decoration: none;
   font-family: Roboto, Arial, sans-serif;
   display: inline-block;
   font-size: 17px;
@@ -59,8 +59,7 @@ body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  line-height: 1.41;
-
+  line-height: 62px;
 }
 
 .description {
