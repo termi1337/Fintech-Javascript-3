@@ -1,0 +1,83 @@
+body {
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  max-width: 960px;
+  font-family: 'Roboto';
+  font-size: 13px;
+}
+
+.first {
+  font-family: 'Roboto';
+  font-size: 18px;
+}
+
+.second {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.third {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #08c;
+}
+
+ul {
+  color: #08c;
+  list-style-type: none;
+}
+
+li {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.parent {
+  position: relative;
+  width: 100%;
+}
+
+.child {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.child > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+img {
+  text-align: center;
+}
+
+.image2 {
+  width: 100px;
+}
+
+a:link {
+  color: #f00;
+}
+
+a:visited {
+  color: #a9a9a9;
+}
+
+a:hover {
+  color: #08c;
+}
+
+a:active {
+  color: #000;
+}

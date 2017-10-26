@@ -1,0 +1,84 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 13px;
+}
+
+.box {
+  height: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #ececec;
+}
+
+.box_1 {
+  position: relative;
+  width: 100%;
+  height: 413px;
+  object-fit: contain;
+  background-image: url(images/card.png);
+  background-repeat: no-repeat;
+}
+
+.box_1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #1489e7, #003e82);
+}
+
+.box_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 828px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.box_3 {
+  right: 90px;
+  max-width: 310px;
+  position: relative;
+}
+
+.button2 {
+  width: 212px;
+  height: 62px;
+  color: #333;
+  text-decoration: none;
+  font-family: Roboto, Arial, sans-serif;
+  display: inline-block;
+  font-size: 17px;
+  text-align: center;
+  background: #ffdd2d;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 62px;
+}
+
+.description {
+  margin-bottom: 30px;
+  width: 326px;
+  height: 48px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.card_title {
+  width: 342px;
+  height: 100px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 17px;
+}
+
