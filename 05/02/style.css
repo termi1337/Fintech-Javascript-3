@@ -14,9 +14,8 @@ body {
   position: relative;
   width: 100%;
   height: 413px;
-  margin: auto;
-  align-content: center;
-  background-image: url(images/cards.png);
+  object-fit: contain;
+  background-image: url(images/card.png);
   background-repeat: no-repeat;
 }
 
@@ -31,28 +30,41 @@ body {
 }
 
 .box_2 {
-  position: relative;
-  width: 100%;
-  height: 413px;
-  margin: auto;
-  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 828px;
+  height: 100%;
+  margin: 0 auto;
 }
 
-.link {
+.box_3 {
+  right: 90px;
+  max-width: 310px;
+  position: relative;
+  max-width: 310px;
+}
+
+.button2 {
   text-decoration: none;
-  box-sizing: border-box;
   width: 212px;
   height: 62px;
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.41;
-  text-align: center;
   color: #333;
+  font-family: Roboto, Arial, sans-serif;
+  display: inline-block;
+  font-size: 17px;
+  text-align: center;
+  background: #ffdd2d;
+  border: none;
   border-radius: 6px;
-  background-color: #ffdd2d;
+  cursor: pointer;
+  line-height: 1.41;
+
 }
 
 .description {
+  margin-bottom: 30px;
   width: 326px;
   height: 48px;
   font-family: Roboto, Arial, sans-serif;
@@ -69,12 +81,6 @@ body {
   font-weight: 100;
   line-height: 1;
   color: #fff;
+  margin-bottom 17px
 }
 
-.link:hover {
-  border-bottom-color: #ffdd2d;
-}
-
-.link:active {
-  border-bottom-color: #ffdd2d;
-}
